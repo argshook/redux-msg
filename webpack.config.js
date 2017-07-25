@@ -4,12 +4,14 @@ const deepAssign = require('deep-assign');
 
 const baseConfig = {
   entry: {
-    index: path.resolve(__dirname, 'index.js')
+    index: path.resolve(__dirname, 'src/index.js')
   },
 
   output: {
     path: path.resolve(__dirname + '/dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    library: 'reduxMsg',
+    libraryTarget: 'umd'
   },
 
   module: {
