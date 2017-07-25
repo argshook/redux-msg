@@ -9,6 +9,10 @@
     "test": "mocha --require babel-core/register test/**/*.test.js",
     "test:watch": "npm run test -- -w"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/argshook/redux-msg"
+  },
   "babel": {
     "presets": [
       "es2015",
