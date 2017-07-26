@@ -17,7 +17,7 @@ describe('createMessage', () => {
 
     it('should return correct action', () => {
       expect(createMessage(STATE_NAME)(MSG)).to.deep.equal({
-        type: MESSAGE_TYPE,
+        type: `${MESSAGE_TYPE}/${STATE_NAME}`,
         stateName: STATE_NAME,
         message: MSG
       });
@@ -26,7 +26,7 @@ describe('createMessage', () => {
     describe('with messageName', () => {
       it('should return correct action with adjusted type', () => {
         expect(createMessage(STATE_NAME)(MSG, 'hello!')).to.deep.equal({
-          type: MESSAGE_TYPE + '/hello!',
+          type: `${MESSAGE_TYPE}/${STATE_NAME}/hello!`,
           stateName: STATE_NAME,
           message: MSG
         });

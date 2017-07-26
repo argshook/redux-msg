@@ -3,8 +3,8 @@ import { expect } from 'chai';
 
 import messageType from '../src/message-type';
 
-describe('MESSAGE', () => {
-  it('should be, you know, MESSAGE, mkay', () => {
-    expect(messageType).to.equal('MESSAGE');
+describe('message type', () => {
+  it('should be expected string', () => {
+    expect(messageType).to.equal('@@MSG');
   });
 });

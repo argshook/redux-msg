@@ -1,1 +1,1 @@
-export default 'MESSAGE';
+export default '@@MSG';
