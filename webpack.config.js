@@ -19,7 +19,7 @@ const baseConfig = {
       {
         test: /\.js?$/,
         exclude: [/node_modules/],
-        loaders: ['babel-loader?presets[]=es2015,presets[]=stage-0']
+        loaders: ['babel-loader?presets[]=env']
       },
       {
         test: /\.s?[a|c]ss$/,
