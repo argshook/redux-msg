@@ -1,4 +1,4 @@
-# Redux Msg
+# Redux Msg [![Build Status](https://travis-ci.org/argshook/redux-msg.svg?branch=master)](https://travis-ci.org/argshook/redux-msg)
 
 small set of functions to help manage redux.
 

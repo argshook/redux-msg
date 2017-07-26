@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "npm run test && webpack -p",
     "test": "mocha --require babel-core/register test/**/*.test.js",
     "test:watch": "npm run test -- -w"
   },
