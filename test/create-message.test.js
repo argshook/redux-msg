@@ -12,12 +12,24 @@ describe('createMessage', () => {
   });
 
   describe('given curried string and message', () => {
+    const MSG = 'msg';
+    const STATE_NAME = 'stateName';
+
     it('should return correct action', () => {
-      const msg = 'msg';
-      expect(createMessage('stateName')(msg)).to.deep.equal({
+      expect(createMessage(STATE_NAME)(MSG)).to.deep.equal({
         type: MESSAGE_TYPE,
-        stateName: 'stateName',
-        message: msg
+        stateName: STATE_NAME,
+        message: MSG
+      });
+    });
+
+    describe('with messageName', () => {
+      it('should return correct action with adjusted type', () => {
+        expect(createMessage(STATE_NAME)(MSG, 'hello!')).to.deep.equal({
+          type: MESSAGE_TYPE + '/hello!',
+          stateName: STATE_NAME,
+          message: MSG
+        });
       });
     });
   });
