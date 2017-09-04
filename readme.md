@@ -12,9 +12,13 @@ example usage in [this repo](https://github.com/argshook/how-to-redux)
     import {
         create-message,
         create-messages-reducer,
-        merge-reducers,
-
+        create-reducer,
+        create-state,
         create-selectors,
-        create-reducer
+        merge-reducers
     } from 'redux-msg';
     ```
+
+i may probably should hopefully type out some documentation at some
+point. in the meantime feel free to contact if you're interested/want
+explanation or details.
