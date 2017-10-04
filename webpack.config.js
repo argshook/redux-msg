@@ -19,21 +19,7 @@ const baseConfig = {
       {
         test: /\.js?$/,
         exclude: [/node_modules/],
-        loaders: ['babel-loader?presets[]=env']
-      },
-      {
-        test: /\.s?[a|c]ss$/,
-        exclude: [/node_modules/],
-        use: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [ require('autoprefixer'), require('precss') ]
-            }
-          }
-        ]
+        loaders: ['babel-loader']
       }
     ]
   },

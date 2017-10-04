@@ -10,12 +10,12 @@ example usage in [this repo](https://github.com/argshook/how-to-redux)
 1. 
     ```js
     import {
-        create-message,
-        create-messages-reducer,
-        create-reducer,
-        create-state,
-        create-selectors,
-        merge-reducers
+        createMessage,
+        createMessages-reducer,
+        createReducer,
+        createState,
+        createSelectors,
+        mergeReducers
     } from 'redux-msg';
     ```
 
