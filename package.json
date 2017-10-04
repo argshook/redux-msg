@@ -1,7 +1,7 @@
 {
   "name": "redux-msg",
   "description": "some functions to organize redux in opinionated way",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack -w",
@@ -14,8 +14,12 @@
     "url": "https://github.com/argshook/redux-msg"
   },
   "babel": {
-    "presets": [ "env" ],
-    "plugins": ["transform-object-rest-spread" ]
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
