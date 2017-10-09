@@ -30,8 +30,8 @@ if you code reducers with `switch`es or `if`s, this function is for you.
 
 `const reducer = createReducer(Model)(Derivations)` where:
 
-* `Model` is a simple object of redux state. This elsewhere is sometimes called `initialState`
-* `Derivations` is an object where:
+* `Model` is an `object` of redux state. This elsewhere is sometimes called `initialState`
+* `Derivations` is an `object` where:
   * `key` is action type (e.g. `COUNTER_INCREASE`)
   * `value` is function of signature `(state, action) => state`. This
   function is called when reducer is called with corresponding action in
@@ -103,7 +103,7 @@ without the need to know path to properties.
 
 `createSelectors(Name)(Model)` where:
 
-* `Name` is a string labeling your component. This should also be part of `combineReducers()`:
+* `Name` is a `string` labeling your component. This should also be part of `combineReducers()`:
 
     ```js
     import counterLogic from 'components/counter/logic';
@@ -118,7 +118,7 @@ without the need to know path to properties.
     > a `Name` defined once for each redux state section is also useful
     > for other helper functions in this library.
 
-* `Model` is a simple object of redux state. This elsewhere is sometimes called `initialState`
+* `Model` is an `object` of redux state. This elsewhere is sometimes called `initialState`
 
 ### Return Value
 
@@ -174,5 +174,74 @@ it can be combined with other selectors easily:
 export const selectors = {
   ...createSelectors(NAME)(MODEL),
   myOtherSelector: state => state[NAME].specialItem
+}
+```
+
+## `createState`
+
+helper to create a slice of global state for specific component
+
+useful when you do `createStore` and want to pass some initial state to some component.
+
+or can be used in tests to quickly create state for testing selectors, for example.
+
+### Usage
+
+`const state = createState(Name)(Model)` where:
+
+* `Name` is a `string` labeling your component. This should also be part of `combineReducers()`. See `createSelectors` for more details
+* `Model` is an `object` of redux state. This elsewhere is sometimes called `initialState`
+
+### Return Value
+
+a function with signature `object -> { [Name]: { ...Model, object }  }`.
+Thats... almost the exact source used.
+
+returned function receives `object` and returns another `object`. The
+returned `object` has key `Name` and its property - shallowly merged
+`Model` and `object`.
+
+Code explains better than i do, please see example.
+
+### Example
+
+`myComponent/redux.js`:
+
+```
+import { createState } from 'redux-msg';
+
+const NAME = 'myComponent';
+const MODEL = {
+  default: 'property',
+  something: 'i am some default value'
+};
+
+export const state = createState(NAME)(MODEL);
+```
+
+
+`create-store.js`:
+
+```
+import { createStore, combineReducers } from 'redux';
+import myComponent from 'myComponent/redux';
+
+const store = createStore(
+  combineReducers({
+   [myComponent.NAME]: myComponent.reducer
+  }),
+  {
+    ...createMyComponentState({ something: 'i am NOT default haha!' })
+  })
+```
+
+after this, `store.getState()` will return:
+
+```
+{
+  'myComponent': {
+    default: 'property'
+    something: 'i am NOT default haha!'
+  }
 }
 ```
