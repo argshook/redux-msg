@@ -7,7 +7,7 @@ import MESSAGE_TYPE from '../src/message-type';
 describe('createMessage', () => {
   describe('given string', () => {
     it('should return function', () => {
-      expect(typeof createMessage('string')).to.equal('function');
+      expect(createMessage('string')).to.be.a('function');
     });
   });
 
@@ -15,7 +15,7 @@ describe('createMessage', () => {
     const MSG = 'msg';
     const STATE_NAME = 'stateName';
 
-    it('should return correct action', () => {
+    it('should return object of expected shape', () => {
       expect(createMessage(STATE_NAME)(MSG)).to.deep.equal({
         type: `${MESSAGE_TYPE}/${STATE_NAME}`,
         stateName: STATE_NAME,

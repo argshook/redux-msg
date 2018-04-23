@@ -1,8 +1,11 @@
 {
   "name": "redux-msg",
   "description": "some functions to organize redux in opinionated way",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
     "start": "webpack -w",
     "build": "npm run test && webpack -p",
