@@ -2,7 +2,7 @@ import createReducer from './create-reducer';
 import createMessage from './create-message';
 import createMessagesReducer from './create-messages-reducer';
 import mergeReducers from './merge-reducers';
-import createSelectors from './create-selectors';
+import createSelector from './create-selector';
 import createState from './create-state';
 
 export {
@@ -10,6 +10,6 @@ export {
   createMessage,
   createMessagesReducer,
   mergeReducers,
-  createSelectors,
+  createSelector,
   createState
 };

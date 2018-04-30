@@ -3,8 +3,5 @@ export default (name = '') =>
   (defaultModel = {}) =>
     (model = {}) =>
       ({
-        [name]: {
-          ...defaultModel,
-          ...model
-        }
+        [name]: Object.assign({}, defaultModel, model)
       });

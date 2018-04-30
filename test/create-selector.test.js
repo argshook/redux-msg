@@ -1,13 +1,13 @@
 /* global describe it */
 import { expect } from 'chai';
 
-import createSelectors from '../src/create-selectors';
+import createSelector from '../src/create-selector';
 
-describe('createSelectors', () => {
+describe('createSelector', () => {
   describe('given curried NAME and MODEL', () => {
     it('should return object with same keys as in MODEL', () => {
       const MOCK_MODEL = { a: 1, b: '2', c: i => i };
-      const selectors = createSelectors('just-a-name')(MOCK_MODEL);
+      const selectors = createSelector('just-a-name')(MOCK_MODEL);
 
       expect(Object.keys(selectors)).to.deep.equal(Object.keys(MOCK_MODEL));
     });
@@ -17,7 +17,7 @@ describe('createSelectors', () => {
       const MOCK_MODEL = { a: 1, b: '2' };
       const MOCK_STATE = { [STATE_NAME]: MOCK_MODEL };
 
-      const selectors = createSelectors(STATE_NAME)(MOCK_MODEL);
+      const selectors = createSelector(STATE_NAME)(MOCK_MODEL);
 
       Object
         .keys(selectors)
