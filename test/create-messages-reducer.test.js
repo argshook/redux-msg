@@ -14,7 +14,12 @@ const expectedState = { a: 2, b: '2' };
 
 describe('createMessagesReducer', () => {
   describe('given curried stateName and model', () => {
-    it('should return reducer that handles messages', () => {
+    it('should return reducer that handles function messages', () => {
+      expect(reducer(MODEL, stateMessage(message))).to.deep.equal(expectedState);
+    });
+
+    it('should return reducer that handles object messages', () => {
+      const message = { a: 2 };
       expect(reducer(MODEL, stateMessage(message))).to.deep.equal(expectedState);
     });
   });
