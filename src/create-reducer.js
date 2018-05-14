@@ -1,6 +1,8 @@
 /**
+  * type Reducer = (state, action) -> state
+  *
   * type Derivations = {
-  *   ...([ACTION_TYPE]: (state, action) -> state)
+  *   ...[ACTION_TYPE]: Reducer
   * }
   */
 
