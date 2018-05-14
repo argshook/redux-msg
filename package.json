@@ -10,7 +10,8 @@
     "start": "webpack -w",
     "build": "npm run test && webpack -p",
     "test": "mocha --require babel-core/register test/**/*.test.js",
-    "test:watch": "npm run test -- -w"
+    "test:watch": "npm run test -- -w",
+    "bench": "node benchmarks"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "benchmark": "^2.1.4",
     "chai": "^4.1.0",
     "deep-assign": "^2.0.0",
     "mocha": "^3.4.2",
