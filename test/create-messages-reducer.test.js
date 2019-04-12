@@ -22,11 +22,13 @@ describe('createMessagesReducer', () => {
       const message = { a: 2 };
       expect(reducer(MODEL, stateMessage(message))).to.deep.equal(expectedState);
     });
-  });
-});
 
-describe('messagesReducer from createMessagesReducer', () => {
-  it('should handle messages with extended type', () => {
-    expect(reducer(MODEL, stateMessage(message, 'hello'))).to.deep.equal(expectedState);
+    it('should handle messages with extended type', () => {
+      expect(reducer(MODEL, stateMessage(message, 'hello'))).to.deep.equal(expectedState);
+    });
+
+    it('should concat previous and new states', () => {
+      expect(reducer(MODEL, stateMessage(({ a }) => ({ a: a + 2 }), 'hello'))).to.deep.equal({ a: 3, b: '2' });
+    });
   });
 });

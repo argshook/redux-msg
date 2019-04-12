@@ -1,7 +1,7 @@
 {
   "name": "redux-msg",
   "description": "some functions to organize redux in opinionated way",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "main": "dist/index.js",
   "files": [
     "dist/index.js"
